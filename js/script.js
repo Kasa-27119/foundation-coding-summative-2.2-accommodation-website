@@ -123,7 +123,8 @@ new fullpage('#fullpage', {
     licenseKey: 'gplv3-license',
     autoScrolling: true,
     scrollHorizontally: true,
-    controlArrows: false,
+    controlArrows: true,
+    fixedElements: ".navbar",
 });
 
 // Prevent scroll of sections and slides:
@@ -132,31 +133,42 @@ new fullpage('#fullpage', {
 // mapbox initialisation
 
 // mapbok token
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
+// mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
 
-const map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/streets-v12",
-  center: [169.13331678032918, -44.6950477150028],
-  zoom: 12,
-});
+// const map = new mapboxgl.Map({
+//   container: "map",
+//   style: "mapbox://styles/mapbox/streets-v12",
+//   center: [169.13331678032918, -44.6950477150028],
+//   zoom: 12,
+// });
 
 // Swiper Init:
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+// const swiper = new Swiper('.swiper', {
+//   // Optional parameters
+//   direction: 'horizontal',
+//   loop: true,
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
   
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
 
+// });
+
+// jquery datepicker initialisation
+$(document).ready(function() {
+  // start date field
+  $("#startDate").datepicker({
+    dateFormat: "dd/mm/yy"
+  });
+
+  // end date field
+  $("#endDate").datepicker({
+    dateFormat: "dd/mm/yy"
+  });
 });
-
-console.log(accommodations);

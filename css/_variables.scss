@@ -1,0 +1,92 @@
+// mixins & variables - wanaka hotels/tourism nz website
+
+// variables
+// colors
+$main-white-color: #FFFCFF;
+$main-blue-black-color: #141C1D;
+$green-accent-color: #2F6C4B;
+$blue-accent-color: #306485;
+$gold-accent-color: #B7990D;
+$grey-accent-color: #CCD6E2;
+
+// fonts
+$header-font-family: "Manrope",
+sans-serif;
+$body-font-family: "Archivo",
+sans-serif;
+
+// font weights
+$header-font-weight: 600;
+$body-font-weight: 400;
+
+// font sizes
+$header-font-size: 2em; // 32px
+$subheader-font-size: 1.625em; // 26px
+$body-font-size: 1.125em; // 18px
+
+// element styling
+$element-border-radius: 8px;
+$button-border-radius: 50px;
+$element-padding: 1.563em;
+$form-field-padding: 8px;
+$form-text-indent: 5px;
+$submit-btn-padding: 14px 22px;
+
+// glassmorphism white - styling
+$glass-white-bg: #fffcffbf;
+$glass-white-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+$glass-white-backdrop-filter: blur(4px);
+
+// glassmorphism white - mixin
+@mixin glassmorphism-white($background, $box-shadow, $backdrop-filter, $border-radius) {
+    background: $glass-white-bg;
+    box-shadow: $glass-white-box-shadow;
+    backdrop-filter: $glass-white-backdrop-filter;
+    border-radius: $element-border-radius;
+}
+
+// display flex - variables
+$display-flex: flex;
+$flex-dir-column: column;
+$flex-dir-row: row;
+$align-items-center: center;
+$justify-content-space-around: space-around;
+
+// space-around-centre-column-flex - mixin
+@mixin space-around-centre-column-flex($display, $flex-direction, $align-items, $justify-content) {
+    display: $display-flex;
+    flex-direction: $flex-dir-column;
+    align-items: $align-items-center;
+    justify-content: $justify-content-space-around;
+}
+
+// space-around-centre-row-flex - mixin
+@mixin space-around-centre-row-flex($display, $flex-direction, $align-items, $justify-content) {
+    display: $display-flex;
+    flex-direction: $flex-dir-row;
+    align-items: $align-items-center;
+    justify-content: $justify-content-space-around;
+}
+
+// form field styling mixin
+@mixin form-field-styling($background-color, $font-size, $font-family, $font-weight, $color, $border-radius, $padding, $text-indent) {
+    background-color: $grey-accent-color;
+    font-size: $subheader-font-size;
+    font-family: $body-font-family;
+    font-weight: $body-font-weight;
+    color: $blue-accent-color;
+    border-radius: $element-border-radius;
+    padding: $form-field-padding;
+    text-indent: $form-text-indent;
+}
+
+// green submit button styling
+@mixin green-submit-btn-styling($background-color, $color, $font-size, $font-family, $font-weight, $padding, $border-radius) {
+    background-color: $green-accent-color;
+    color: $main-white-color;
+    font-size: $subheader-font-size;
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    padding: $submit-btn-padding;
+    border-radius: $button-border-radius;
+}

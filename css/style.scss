@@ -1,15 +1,241 @@
+// import google fonts
+// manrope - sans serif header font
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+// archivo - sans serif body font
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+// import variables & mixins
+@import "./variables";
+
+// global reset
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+// global body styling
 body {
     background-color: aliceblue;
+    font-family: "Archivo", sans-serif;
+
+    button {
+        border: none;
+    }
+
+    // form submit button
+    .form-submit-btn {
+        @include green-submit-btn-styling($green-accent-color, $main-white-color, $subheader-font-size, $header-font-family, $header-font-weight, $submit-btn-padding, $button-border-radius);
+    }
 }
 
+// mapbox
 #map {
     height: 400px;
     width: 40%;
     background-color: aquamarine;
+}
+
+// navbar
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: $main-blue-black-color;
+    z-index: 20;
+
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    // navbar container
+    .navbar-container {
+        width: 98%;
+        height: 100%;
+        display: $display-flex;
+        flex-direction: $flex-dir-row;
+        align-items: $align-items-center;
+        justify-content: space-evenly;
+
+        // navbar links styling
+        .navbar-links {
+            color: $main-white-color;
+            text-decoration: none;
+            font-size: 1.375em;
+            font-family: "Manrope", sans-serif;
+        }
+
+        #navbar-logo {
+            font-size: 2.125em;
+            font-weight: 800;
+        }
+
+        // navbar links container
+        .navbar-links-container {
+            width: 55%;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        // navbar icons container
+        .navbar-icons-container {
+            width: 8%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .navbar-icons {
+                color: #FFFCFF;
+                font-size: 2.188em;
+            }
+        }
+    }
+}
+
+
+// fullpage styling 
+.section {
+    display: $display-flex;
+    flex-direction: $flex-dir-column;
+    align-items: $align-items-center;
+    justify-content: center;
+
+
+    // global slide styling
+    .slide {
+        display: $display-flex;
+        flex-direction: $flex-dir-column;
+        // align-items: $align-items-center;
+        justify-content: center;
+        min-width: 100vw;
+        max-height: calc(100vh - 90px);
+        padding: 0 80px;
+
+        position: relative;
+        top: 90px;
+    }
+
+    // // slide 1
+    #slide-1 {
+        background-image: url("../imgs/wanaka-bg-1.webp");
+        background-position: center;
+        background-size: cover;
+
+        // welcome panel
+        .welcome-panel {
+            max-width: 35%;
+            padding: $element-padding;
+
+            @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
+
+            // welcome text container
+            .welcome-text-container {
+                height: 70%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+
+                @include space-around-centre-column-flex($display-flex, $flex-dir-column, $align-items-center, $justify-content-space-around);
+
+                // welcome header
+                #welcome-header {
+                    font-size: 5.938em;
+                    text-align: center;
+                    color: $green-accent-color
+                }
+
+                // welcome body text
+                #welcome-body-text {
+                    width: 90%;
+                    text-align: center;
+                    font-size: $subheader-font-size;
+                    margin-top: 20px;
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    // slide 2
+    #slide-2 {
+        background-image: url("../imgs/wanaka-bg-2.webp");
+        background-position: center;
+        background-size: cover;
+
+        // accommodation form container
+        .accommodation-form {
+            max-width: 38%;
+            min-height: 60vh;
+            padding: $element-padding;
+
+            @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
+
+            @include space-around-centre-column-flex($display-flex, $flex-dir-column, $align-items-center, space-between);
+
+            // form header
+            #form-header {
+                font-size: 42px;
+                color: $green-accent-color;
+            }
+
+            // form fields container
+            .form-fields-container {
+                width: 90%;
+                display: $display-flex;
+                flex-direction: $flex-dir-row;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                // form field & label container
+                .form-small-field-container {
+                    width: 47%;
+                    display: $display-flex;
+                    flex-direction: $flex-dir-column;
+                    align-items: $align-items-center;
+                    justify-content: space-between;
+
+                    label {
+                        font-size: $subheader-font-size;
+                        font-family: "Manrope", sans-serif;
+                        font-weight: $header-font-weight;
+                    }
+
+                    select,
+                    input {
+                        width: 100%;
+                        border: none;
+
+                        @include form-field-styling($grey-accent-color, $subheader-font-size, $body-font-family, $body-font-weight, $blue-accent-color, $element-border-radius, $form-field-padding, $form-text-indent);
+                    }
+                }
+            }
+        }
+    }
+
+    // slide 3
+    #slide-3 {
+        background-color: rgb(144, 68, 203);
+    }
+
+    // slide 4
+    #slide-4 {
+        background-color: rgb(157, 53, 53);
+    }
+
+    // slide 5
+    #slide-5 {
+        background-color: rgb(227, 162, 78);
+    }
+
+    // slide 6
+    #slide-6 {
+        background-color: rgb(165, 69, 132);
+    }
 }

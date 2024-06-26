@@ -61,7 +61,7 @@
 
                     <!-- welcome text container -->
                     <div class="welcome-text-container">
-                        <h1 id="welcome-header">Wanaka Hotels</h1>
+                        <h1 id="welcome-header" class="green-header">Wanaka Hotels</h1>
 
                         <p id="welcome-body-text">A Tourism-NZ accommodation finder based around the Wanaka region, so
                             you can enjoy what the Wanaka area and South Island has to offer you.</p>
@@ -78,7 +78,7 @@
                 <!-- form main container -->
                 <form class="accommodation-form">
                     <!-- form header -->
-                    <h2 id="form-header">Find Accommodation</h2>
+                    <h2 id="form-header" class="green-header">Find Accommodation</h2>
 
                     <!-- form split fields container - top row -->
                     <div class="form-fields-container">
@@ -86,9 +86,9 @@
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- accommodation type field -->
-                            <label for="accommodationType">Accom. Type</label>
+                            <label for="accommodationType" class="black-label">Accom. Type</label>
 
-                            <select name="accommodationType" id="accommodationType">
+                            <select name="accommodationType" id="accommodationType" class="input-field-blue-styling">
                                 <option value="">Any</option>
                                 <option value="hotel">Hotel</option>
                                 <option value="motel">Motel</option>
@@ -100,9 +100,9 @@
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- number of guests field -->
-                            <label for="numberOfGuests"># of Guests</label>
+                            <label for="numberOfGuests" class="black-label"># of Guests</label>
 
-                            <select name="numberOfGuests" id="numberOfGuests">
+                            <select name="numberOfGuests" id="numberOfGuests" class="input-field-blue-styling">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -117,28 +117,28 @@
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- min price field -->
-                            <label for="minPrice">Min. Price</label>
+                            <label for="minPrice" class="black-label">Min. Price</label>
 
-                            <select name="minPrice" id="minPrice">
+                            <select name="minPrice" id="minPrice" class="input-field-blue-styling">
                                 <option value="">Any</option>
-                                <option value="hotel">Hotel</option>
-                                <option value="motel">Motel</option>
-                                <option value="hostel">Hostel</option>
-                                <option value="house">House</option>
+                                <option value="$30">$30</option>
+                                <option value="$90">$90</option>
+                                <option value="$150">$150</option>
+                                <option value="$240">$240</option>
                             </select>
                         </div>
 
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- max price field -->
-                            <label for="maxPrice">Max. Price</label>
+                            <label for="maxPrice" class="black-label">Max. Price</label>
 
-                            <select name="maxPrice" id="maxPrice">
+                            <select name="maxPrice" id="maxPrice" class="input-field-blue-styling">
                                 <option value="">Any</option>
-                                <option value="hotel">Hotel</option>
-                                <option value="motel">Motel</option>
-                                <option value="hostel">Hostel</option>
-                                <option value="house">House</option>
+                                <option value="$30">$30</option>
+                                <option value="$90">$90</option>
+                                <option value="$150">$150</option>
+                                <option value="$240">$240</option>
                             </select>
                         </div>
                     </div>
@@ -149,22 +149,25 @@
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- min price field -->
-                            <label for="startDate">Start Date</label>
+                            <label for="startDate" class="black-label">Start Date</label>
 
-                            <input type="text" id="startDate" name="startDate" placeholder="01/01/24" required>
+                            <input type="text" id="startDate" class="input-field-blue-styling" name="startDate"
+                                placeholder="01/01/24" required>
                         </div>
 
                         <!-- form small field container -->
                         <div class="form-small-field-container">
                             <!-- max price field -->
-                            <label for="endDate">End Date</label>
+                            <label for="endDate" class="black-label">End Date</label>
 
-                            <input type="text" id="endDate" name="endDate" placeholder="01/01/24" required>
+                            <input type="text" id="endDate" class="input-field-blue-styling" name="endDate"
+                                placeholder="01/01/24" required>
                         </div>
                     </div>
 
                     <!-- form submit button -->
-                     <button type="submit" class="form-submit-btn" id="findAccommodationsSubmitButton">Find Accommodations</button>
+                    <button type="submit" class="form-submit-btn" id="findAccommodationsSubmitButton">Find
+                        Accommodations</button>
 
 
                 </form>
@@ -172,7 +175,89 @@
 
             <!-- accommodation grid page 3 -->
             <div class="slide" id="slide-3">
+                <!-- accommodations main top container -->
+                <div class="accommodation-top-container">
+
+                    <!-- accommodations main header -->
+                    <h2 class="green-header" id="accommodation-header">Accommodations</h2>
+
+                    <!-- accommodations filter & sort main container -->
+                    <div class="accommodation-filter-sort-container">
+
+                        <!-- accommodation filters -->
+                        <div class="accommodation-filter-container">
+
+                            <!-- filter field container - accomm. type -->
+                            <div class="accommodation-filter-field-container">
+                                <!-- label -->
+                                <label for="accommodationTypeFilter" class="black-label">Accomm. Type</label>
+
+                                <!-- filter select -->
+                                <select name="accommodationTypeFilter" id="accommodationTypeFilter"
+                                    class="input-field-blue-styling">
+                                    <option value="">Any</option>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="motel">Motel</option>
+                                    <option value="hostel">Hostel</option>
+                                    <option value="house">House</option>
+                                </select>
+                            </div>
+
+                            <!-- filter field container - min. price -->
+                            <div class="accommodation-filter-field-container">
+                                <!-- label -->
+                                <label for="minPriceFilter" class="black-label">Min. Price</label>
+
+                                <!-- filter select -->
+                                <select name="minPriceFilter" id="minPriceFilter" class="input-field-blue-styling">
+                                    <option value="">Any</option>
+                                    <option value="$30">$30</option>
+                                    <option value="$90">$90</option>
+                                    <option value="$150">$150</option>
+                                    <option value="$240">$240</option>
+                                </select>
+                            </div>
+
+                            <!-- filter field container - max. price -->
+                            <div class="accommodation-filter-field-container">
+                                <!-- label -->
+                                <label for="maxPriceFilter" class="black-label">Max. Price</label>
+
+                                <!-- filter select -->
+                                <select name="maxPriceFilter" id="maxPriceFilter" class="input-field-blue-styling">
+                                    <option value="">Any</option>
+                                    <option value="$30">$30</option>
+                                    <option value="$90">$90</option>
+                                    <option value="$150">$150</option>
+                                    <option value="$240">$240</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- accommodation sort buttons -->
+                        <div class="accommodation-sort-container">
+                            <h3 class="black-label">Sort</h3>
+
+                            <!-- sort buttons container -->
+                            <div class="accommodation-sort-btns-container">
+                                <button class="small-black-btn">Alphabetical</button>
+                                <button class="small-black-btn">$ - $$$</button>
+                                <button class="small-black-btn">$$$ - $</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- accommodation-results - populated by js -->
+                <div class="accommodation-results" id="accommodation-results">
+
+                    
+
+                </div>
             </div>
+
+            <!-- accommodation card - basic card  -->
+            <div class="accommodation-card"></div>
 
             <!-- meal options page 4 -->
             <div class="slide" id="slide-4"></div>
@@ -189,27 +274,24 @@
 
             <!-- Swiper -->
             <!-- Slider main container -->
-            <!-- <div class="swiper">
+            <div class="swiper">
                 
                 <div class="swiper-wrapper">
-                   
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
+                    <div class="swiper-slide">img</div>
+                    <div class="swiper-slide">img</div>
+                    <div class="swiper-slide">img</div>
                 </div>
                 
                 <div class="swiper-pagination"></div>
-
-               
+             
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
               
                 <div class="swiper-scrollbar"></div>
-            </div> -->
+            </div>
 
             <!-- mapbox -->
-            <!-- <div id="map"></div> -->
+            <div id="map"></div>
 
         </div>
         <div class="section">Section 3</div>

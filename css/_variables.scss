@@ -89,4 +89,15 @@ $justify-content-space-around: space-around;
     font-weight: $header-font-weight;
     padding: $submit-btn-padding;
     border-radius: $button-border-radius;
+} 
+
+// small black button styling$
+@mixin small-black-btn-styling($background-color, $color, $font-size, $font-family, $font-weight, $padding, $border-radius) {
+    background-color: $main-blue-black-color;
+    color: $main-white-color;
+    font-size: $subheader-font-size;
+    font-family: $header-font-family;
+    font-weight: $body-font-weight;
+    padding: 8px 22px;
+    border-radius: $button-border-radius;
 }

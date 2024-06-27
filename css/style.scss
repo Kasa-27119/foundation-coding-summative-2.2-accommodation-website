@@ -156,7 +156,7 @@ body {
         top: 90px;
     }
 
-    // // slide 1
+    // // slide 1 - home page
     #slide-1 {
         background-image: url("../imgs/wanaka-bg-1.webp");
         background-position: center;
@@ -195,7 +195,7 @@ body {
         }
     }
 
-    // slide 2
+    // slide 2 - find accommodations page
     #slide-2 {
         background-image: url("../imgs/wanaka-bg-2.webp");
         background-position: center;
@@ -235,20 +235,23 @@ body {
         }
     }
 
-    // slide 3
+    // slide 3 - accommodations results page
     #slide-3 {
         background-image: url("../imgs/wanaka-bg-2.webp");
         background-position: center;
         background-size: cover;
 
+        // accommodation main header & filter/sort container
         .accommodation-top-container {
             max-width: 100%;
             height: auto;
+            margin: 40px 0;
             // background-color: rgb(237, 235, 232);
 
             #accommodation-header {
                 font-size: 5.375em;
                 text-align: center;
+                margin-bottom: 20px;
             }
 
             .accommodation-filter-sort-container {
@@ -262,7 +265,7 @@ body {
                 justify-content: space-between;
 
                 @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
-                
+
 
                 .accommodation-filter-container,
                 .accommodation-sort-btns-container {
@@ -276,18 +279,108 @@ body {
             }
         }
 
+        // accommodations results grid
         .accommodation-results {
-            height: 400px;
+            height: auto;
             max-width: 100%;
-            padding: 30px;
-            background-color: cornflowerblue;
+            padding: 30px 0;
+            // background-color: cornflowerblue;
 
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 50px 30px;
 
-            .swiper {
-                max-width: 400px;
-                
+            // accommodations results card
+            .accommodation-card {
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
+
+                @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
+
+                // swiper gallery
+                .swiper {
+                    max-width: 448px;
+                    max-height: 16.875em;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+
+                   .swiper-slide {
+                    @include space-around-centre-row-flex($display-flex, $flex-dir-column, center, center);
+                   }
+
+                    // swiper slide image
+                    .swiper-slide img {
+                        width: 100%;
+                        height: 100%;
+
+                        object-fit: cover;
+                        object-position: center;
+                    }
+
+                    // swiper pagination container
+                    .swiper-pagination {
+                        background-color: rgba(231, 236, 237, 0.7);
+                        margin: 0 197px;
+                        max-width: 55px;
+                        padding: 5px 8px;
+                        border-radius: 20px;
+
+                        @include space-around-centre-row-flex($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
+
+                        .swiper-pagination-bullet {
+                            background-color: $green-accent-color;
+                        }
+                    }
+                }
+
+                // accommodations details container
+                .accommodation-details {
+                    padding: $element-padding;
+
+                    // acccommodation details top & bottom row
+                    .accomm-details-top-container, .accomm-details-bottom-container {
+                        display: $display-flex;
+                        flex-direction: $flex-dir-row;
+                    }
+
+                    .accomm-details-top-container {
+                        display: $display-flex;
+                        justify-content: space-between;
+
+                        .accomm-details-header-container h3{
+                            font-size: $header-font-size;
+                        }
+
+                        .accomm-details-header-container h4{
+                            font-size: $subheader-font-size;
+                        }
+
+                        .accomm-details-ratings {
+                            display: $display-flex;
+                            justify-content: center;
+                            align-items: flex-start;
+                            color: $gold-accent-color;
+
+                            .accomm-ratings {
+                                font-size: 28px;
+                                margin-right: 5px;
+                            }
+
+                            .fa-award {
+                                font-size: $header-font-size;
+                            }
+                        }
+                    }
+
+                    .accomm-details-bottom-container {
+                        margin-top: 35px;
+                        justify-content: space-between;
+                    }
+                }
+
+
+
             }
         }
     }
@@ -305,5 +398,12 @@ body {
     // slide 6
     #slide-6 {
         background-color: rgb(165, 69, 132);
+    }
+
+    // button states
+
+    // accommodation page scrollbar
+    ::-webkit-scrollbar{
+        display: none;
     }
 }

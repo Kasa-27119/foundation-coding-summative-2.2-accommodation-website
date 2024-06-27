@@ -16,7 +16,7 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v3.4.0/mapbox-gl.css' rel='stylesheet' />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+    <title>Wanaka Hotels</title>
 </head>
 
 <body>
@@ -89,7 +89,7 @@
                             <label for="accommodationType" class="black-label">Accom. Type</label>
 
                             <select name="accommodationType" id="accommodationType" class="input-field-blue-styling">
-                                <option value="">Any</option>
+                                <!-- <option value="">Any</option> -->
                                 <option value="hotel">Hotel</option>
                                 <option value="motel">Motel</option>
                                 <option value="hostel">Hostel</option>
@@ -120,7 +120,7 @@
                             <label for="minPrice" class="black-label">Min. Price</label>
 
                             <select name="minPrice" id="minPrice" class="input-field-blue-styling">
-                                <option value="">Any</option>
+                                <!-- <option value="">Any</option> -->
                                 <option value="$30">$30</option>
                                 <option value="$90">$90</option>
                                 <option value="$150">$150</option>
@@ -134,7 +134,7 @@
                             <label for="maxPrice" class="black-label">Max. Price</label>
 
                             <select name="maxPrice" id="maxPrice" class="input-field-blue-styling">
-                                <option value="">Any</option>
+                                <!-- <option value="">Any</option> -->
                                 <option value="$30">$30</option>
                                 <option value="$90">$90</option>
                                 <option value="$150">$150</option>
@@ -168,6 +168,9 @@
                     <!-- form submit button -->
                     <button type="submit" class="form-submit-btn" id="findAccommodationsSubmitButton">Find
                         Accommodations</button>
+
+                    <!-- error message -->
+                    <div id="errorMessageContainer"></div>
 
 
                 </form>

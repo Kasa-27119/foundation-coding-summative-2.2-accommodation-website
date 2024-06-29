@@ -5,7 +5,7 @@ const accommodations = [{
     // hostel #1
     id: 1,
     propertyName: "Kingston Hostel",
-    propertyType: "hostel",
+    propertyType: "Hostel",
     address: "33 Dunmore St.",
     rating: 3,
     minPerson: 1,
@@ -22,7 +22,7 @@ const accommodations = [{
     // hostel #2
     id: 2,
     propertyName: "Hedditch Cottage",
-    propertyType: "hostel",
+    propertyType: "Hostel",
     address: "76 Hedditch St.",
     rating: 3,
     minPerson: 1,
@@ -38,7 +38,7 @@ const accommodations = [{
     // hotel #1
     id: 3,
     propertyName: "Belmont Lodge",
-    propertyType: "hotel",
+    propertyType: "Hotel",
     address: "120 Browston St.",
     rating: 4.5,
     minPerson: 1,
@@ -55,7 +55,7 @@ const accommodations = [{
     // hotel #2
     id: 4,
     propertyName: "Wanaka Retreat",
-    propertyType: "hotel",
+    propertyType: "Hotel",
     address: "65  Little St.",
     rating: 4.5,
     minPerson: 1,
@@ -71,7 +71,7 @@ const accommodations = [{
     // motel #1
     id: 5,
     propertyName: "Lismore Motel",
-    propertyType: "motel",
+    propertyType: "Motel",
     address: "10 Lismore St.",
     rating: 3.5,
     minPerson: 2,
@@ -87,7 +87,7 @@ const accommodations = [{
     // motel #2
     id: 6,
     propertyName: "Mackay Point",
-    propertyType: "motel",
+    propertyType: "Motel",
     address: "59 Helwick St.",
     rating: 3.5,
     minPerson: 2,
@@ -103,7 +103,7 @@ const accommodations = [{
     // house #1
     id: 7,
     propertyName: "Brenner House",
-    propertyType: "house",
+    propertyType: "House",
     address: "25 Hunter Cres.",
     rating: 5,
     minPerson: 1,
@@ -119,7 +119,7 @@ const accommodations = [{
     // house #2
     id: 8,
     propertyName: "Beacon Sanctuary",
-    propertyType: "house",
+    propertyType: "House",
     address: "5 Beacon Point Rd.",
     rating: 5,
     minPerson: 1,
@@ -207,18 +207,19 @@ $(document).ready(function () {
     if (validateFilters()) {
       // move to next slide
       fullpage_api.moveTo(1, 2);
+      // run filter and populate function
+      filterAndPopulateAccommodations();
     }
 
   });
 
   // initial accommodation population
-  function populateAccommodationResults() {
-
+  function populateAccommodationResults(accommodations) {
     // get div from html
     const accommodationResults = $("#accommodation-results");
 
     // clear results of elements
-    accommodationResults.html = ("");
+    accommodationResults.html("");
 
     // populate results div with cards for each array object
     accommodations.forEach(accommodation => {
@@ -254,25 +255,24 @@ $(document).ready(function () {
 
       // append accommodation card to results grid
       accommodationResults.append(accommodationCard);
+    });
 
-      // re-initialise swiper
-      const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: 'true',
-        },
+    // re-initialise swiper
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true,
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: 'true',
+      },
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-
-      });
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
   }
 
@@ -329,7 +329,7 @@ $(document).ready(function () {
 
     // return passed objects as true
     return validValue;
-    
+
   }
 
   // filter accommodations
@@ -337,10 +337,27 @@ $(document).ready(function () {
 
     // get form inputs values
     const accommodationType = $("#accommodationType").val();
-    const numberOfGuests = $("#numberOfGuests").val();
-    const minPrice = $("#minPrice").val();
-    const maxPrice = $("#maxPrice").val();
-    const startDate = $("#startDate").val();
+    const numberOfGuests = parseInt($("#numberOfGuests").val());
+    const minPrice = parseFloat($("#minPrice").val().replace("$", ""));
+    const maxPrice = parseFloat($("#maxPrice").val().replace("$", ""));
+    const diffDays = calculateDaysOfStay();
+    console.log(diffDays);
+
+    // filter over accommodation objects and return as filteredAccommodations
+    const filteredAccommodations = accommodations.filter(accommodation => {
+      return (
+        (accommodationType === "any" || accommodation.propertyType === accommodationType) &&
+        (accommodation.minPerson <= numberOfGuests) &&
+        (accommodation.maxPerson >= numberOfGuests) &&
+        (accommodation.price >= minPrice) &&
+        (accommodation.price <= maxPrice) &&
+        (accommodation.minStay <= diffDays) &&
+        (accommodation.maxStay >= diffDays)
+      );
+    });
+
+    console.log(filteredAccommodations);
+    populateAccommodationResults(filteredAccommodations);
   }
 
   // calculate days of stay

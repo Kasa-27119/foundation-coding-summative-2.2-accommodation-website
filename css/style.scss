@@ -383,6 +383,34 @@ body {
 
             }
         }
+
+        // accommodation card modal
+        #accommodationModal {
+            z-index: 30;
+            position: fixed;
+            display: none;
+            top: 20px;
+            left: 500px;
+
+            display: flex;
+            flex-direction: column;
+            min-width: 500px;
+            height: auto;
+            background-color: aliceblue;
+        }
+
+        // test modal
+        #test-modal {
+            z-index: 100;
+            position: fixed;
+            display: block;
+            top: 0;
+            left: 0;
+
+            min-height: 400px;
+            min-width: 400px;
+            background-color: #cc3535;
+        }
     }
 
     // slide 4

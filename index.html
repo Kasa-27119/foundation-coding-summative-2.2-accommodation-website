@@ -120,7 +120,7 @@
                             <label for="minPrice" class="black-label">Min. Price</label>
 
                             <select name="minPrice" id="minPrice" class="input-field-blue-styling">
-                                <option value="any">Any</option>
+                                <!-- <option value="any">Any</option> -->
                                 <option value="$30">$30</option>
                                 <option value="$90">$90</option>
                                 <option value="$150">$157</option>
@@ -134,7 +134,7 @@
                             <label for="maxPrice" class="black-label">Max. Price</label>
 
                             <select name="maxPrice" id="maxPrice" class="input-field-blue-styling">
-                                <option value="any">Any</option>
+                                <!-- <option value="any">Any</option> -->
                                 <option value="$30">$30</option>
                                 <option value="$90">$90</option>
                                 <option value="$150">$157</option>
@@ -252,11 +252,22 @@
                 </div>
 
                 <!-- accommodation-results - populated by js -->
-                <div class="accommodation-results" id="accommodation-results">
+                <div class="accommodation-results" id="accommodation-results"></div>
 
+                <!-- accommodations card modal - populated by js -->
+                <dialog id="accommodationModal">
+                    <!-- close modal button -->
+                    <button id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+
+                    <!-- accommodation modal content -->
+                    <div class="modalContent"></div>
+                </dialog>
+
+                <!-- test modal -->
+                <dialog id="test-modal"></dialog>
                     
 
-                </div>
+                
             </div>
 
             <!-- accommodation card - basic card  -->
@@ -294,7 +305,7 @@
             </div>
 
             <!-- mapbox -->
-            <div id="map"></div>
+            <!-- <div id="map"></div> -->
 
         </div>
         <div class="section">Section 3</div>

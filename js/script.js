@@ -16,6 +16,7 @@ const accommodations = [{
     longitude: 169.14796156828785,
     latitude: -44.68833610545848,
     image: ["https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
 
   },
   {
@@ -33,6 +34,7 @@ const accommodations = [{
     longitude: 169.14400050370767,
     latitude: -44.69240595726597,
     image: ["https://images.unsplash.com/photo-1535961671600-c244ea895cec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1535961671600-c244ea895cec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // hotel #1
@@ -49,6 +51,7 @@ const accommodations = [{
     longitude: 169.1348656343329,
     latitude: -44.71476276242638,
     image: ["https://images.unsplash.com/photo-1682204803376-1c7dae90db28?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1682204803376-1c7dae90db28?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
 
   },
   {
@@ -66,6 +69,7 @@ const accommodations = [{
     longitude: 169.11241468540766,
     latitude: -44.694683102002955,
     image: ["https://images.unsplash.com/photo-1612320582827-a95ab2596dbc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1612320582827-a95ab2596dbc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // motel #1
@@ -82,6 +86,7 @@ const accommodations = [{
     longitude: 169.12749734263406,
     latitude: -44.68476604629336,
     image: ["https://images.unsplash.com/photo-1642552647918-32f6d5401980?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1642552647918-32f6d5401980?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // motel #2
@@ -98,6 +103,7 @@ const accommodations = [{
     longitude: 169.13630262373874,
     latitude: -44.7110685267468,
     image: ["https://images.unsplash.com/photo-1642552645890-69e371b0a81f?q=80&w=1786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1642552645890-69e371b0a81f?q=80&w=1786&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // house #1
@@ -114,6 +120,7 @@ const accommodations = [{
     longitude: 169.1271424188769,
     latitude: -44.678758443829125,
     image: ["https://images.unsplash.com/photo-1599303061483-b93b527dc0ed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1599303061483-b93b527dc0ed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // house #2
@@ -130,6 +137,7 @@ const accommodations = [{
     longitude: 169.13020125245836,
     latitude: -44.67180474844172,
     image: ["https://images.unsplash.com/photo-1606402179428-a57976d71fa4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1606402179428-a57976d71fa4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
+    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   }
 ];
 
@@ -140,8 +148,15 @@ $(document).ready(function () {
     autoScrolling: true,
     scrollHorizontally: true,
     controlArrows: true,
-    fixedElements: ".navbar",
+    fixedElements: ".navbar, #test-modal, #accommodationModal",
   });
+
+  // show test modal
+  // const testModal = $("#test-modal");
+  // testModal.showModal();
+
+  // initialise modal on click function
+  openModalOnClick();
 
   // Prevent scroll of sections and slides:
   // fullpage_api.setAllowScrolling(false);
@@ -164,7 +179,6 @@ $(document).ready(function () {
   const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
-    loop: true,
     // If we need pagination
     pagination: {
       el: '.swiper-pagination',
@@ -199,7 +213,7 @@ $(document).ready(function () {
 
   });
 
-  // prevent "find acccommodations" button default & validate (slide 2)
+  // prevent "find accommodations" button default & validate (slide 2)
   $("#findAccommodationsSubmitButton").click(function (event) {
     event.preventDefault();
 
@@ -246,7 +260,7 @@ $(document).ready(function () {
             </div>
           </div>
           <div class="accomm-details-bottom-container">
-            <h3 class="black-label">$${accommodation.price}/night</h3>
+            <h3 class="black-label">${accommodation.price}/night</h3>
             <h3 class="black-label">${accommodation.minPerson}-${accommodation.maxPerson} guests</h3>
           </div>
         </div>
@@ -261,7 +275,6 @@ $(document).ready(function () {
     const swiper = new Swiper('.swiper', {
       // Optional parameters
       direction: 'horizontal',
-      loop: true,
       // If we need pagination
       pagination: {
         el: '.swiper-pagination',
@@ -279,9 +292,7 @@ $(document).ready(function () {
   // initial population callback
   populateAccommodationResults();
 
-  // accommmodation filters on the form page (2nd slide)
-  // validate filters (before filtering)
-
+  // accommodation filters on the form page (2nd slide)
   function validateFilters() {
     // variables
     let validValue = true;
@@ -381,5 +392,94 @@ $(document).ready(function () {
     }
 
   }
+
+  function openModalOnClick() {
+    // get dialog modal from html
+    const accommModalContainer = $("#accommodationsModal");
+
+    // open modal on click - for all accommodation swiper images
+    $(".accommodation-item-image").on("click", function (event) {
+      console.log("img click is working");
+      accommModalContainer.showModal();
+      document.body.classList.add("opened-modal");
+
+      // get accommodation swiper image id & populate on click
+      const accommodationId = $(this).data("id");
+      populateModal(accommodationId);
+    });
+
+    // added close function
+    closeAccommodationModal();
+  }
+
+  // close modal function
+  function closeAccommodationModal() {
+    // get the modal close button & modal container
+    const closeModalButton = $("#closeModal");
+    const accommModalContainer = $("#accommodationsModal");
+
+    // remove existing event listener (if needed)
+    closeModalButton.off("click", closeModalHandler);
+
+    // apply click event on close
+    closeModalButton.on("click", closeModalHandler);
+  }
+
+  // close modal handler function
+  function closeModalHandler() {
+    const accommModalContainer = $("#accommodationsModal");
+    accommModalContainer[0].close();
+    document.body.classList.remove("opened-modal");
+  }
+
+  // populate modal function
+  function populateModal(accommodationId) {
+    // get modal from html & accommodation objects
+    const accommodationModal = $(".modalContent");
+    const accommodation = accommodations.find(a => a.id == accommodationId);
+
+    // add modal content
+    accommodationModal.html(`
+    <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="${accommodation.image[0]}" alt="${accommodation.propertyName} image1" class="accommodation-item-image" data-id="${accommodation.id}"></div>
+          <div class="swiper-slide"><img src="${accommodation.image[1]}" alt="${accommodation.propertyName} image2" class="accommodation-item-image" data-id="${accommodation.id}"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <div class="accommodation-details">
+      <div class="accomm-details-top-container">
+        <div class="accomm-details-header-container">
+          <h3 class="green-header">${accommodation.propertyName}</h3>
+          <h4 class="green-header">${accommodation.address}</h4>
+        </div>
+        <div class="accomm-details-ratings">
+          <h3 class="accomm-ratings">${accommodation.rating}</h3>
+          <i class="fa-solid fa-award"></i>
+        </div>
+      </div>
+      <div class="accomm-details-bottom-container">
+        <h3 class="black-label">${accommodation.price}/night</h3>
+        <h3 class="black-label">${accommodation.minPerson}-${accommodation.maxPerson} guests</h3>
+      </div>
+    </div>
+  `);
+
+    // re-initialise swiper for modal
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
 
 });

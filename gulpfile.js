@@ -60,6 +60,7 @@ function minifyJs(done) {
 }
 
 // Watch task to watch for file changes
+// removed "lint" from gulp.watch #3, gulp.series(lint, minifyJS));
 function watch(done) {
     gulp.watch('css/*.scss', gulp.series(styles));
     gulp.watch('./*.html', gulp.series(html));
@@ -68,4 +69,5 @@ function watch(done) {
 }
 
 //Run the task:
+// removed "lint", eg. watch, lint, minifyJS
 gulp.task('default', gulp.series(serve, watch, lint, minifyJs, html, styles));

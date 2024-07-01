@@ -8,6 +8,9 @@ const accommodations = [{
     propertyType: "Hostel",
     address: "33 Dunmore St.",
     rating: 3,
+    drinks: false,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 1,
     minStay: 1,
@@ -17,7 +20,6 @@ const accommodations = [{
     latitude: -44.68833610545848,
     image: ["https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
     description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
-
   },
   {
     // hostel #2
@@ -26,6 +28,9 @@ const accommodations = [{
     propertyType: "Hostel",
     address: "76 Hedditch St.",
     rating: 3,
+    drinks: false,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 1,
     minStay: 1,
@@ -43,6 +48,9 @@ const accommodations = [{
     propertyType: "Hotel",
     address: "120 Browston St.",
     rating: 4.5,
+    drinks: true,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 2,
     minStay: 1,
@@ -61,6 +69,9 @@ const accommodations = [{
     propertyType: "Hotel",
     address: "65  Little St.",
     rating: 4.5,
+    drinks: true,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 2,
     minStay: 1,
@@ -78,6 +89,9 @@ const accommodations = [{
     propertyType: "Motel",
     address: "10 Lismore St.",
     rating: 3.5,
+    drinks: false,
+    meals: true,
+    wifi: true,
     minPerson: 2,
     maxPerson: 4,
     minStay: 3,
@@ -95,6 +109,9 @@ const accommodations = [{
     propertyType: "Motel",
     address: "59 Helwick St.",
     rating: 3.5,
+    drinks: false,
+    meals: true,
+    wifi: true,
     minPerson: 2,
     maxPerson: 4,
     minStay: 3,
@@ -112,6 +129,9 @@ const accommodations = [{
     propertyType: "House",
     address: "25 Hunter Cres.",
     rating: 5,
+    drinks: true,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 4,
     minStay: 2,
@@ -129,6 +149,9 @@ const accommodations = [{
     propertyType: "House",
     address: "5 Beacon Point Rd.",
     rating: 5,
+    drinks: true,
+    meals: true,
+    wifi: true,
     minPerson: 1,
     maxPerson: 4,
     minStay: 2,
@@ -148,32 +171,30 @@ $(document).ready(function () {
     autoScrolling: true,
     scrollHorizontally: true,
     controlArrows: true,
-    fixedElements: ".navbar, #test-modal, #accommodationModal",
+    fixedElements: ".navbar, #accommodationModal",
   });
-
-  // show test modal
-  // const testModal = $("#test-modal");
-  // testModal.showModal();
-
-  // initialise modal on click function
-  openModalOnClick();
 
   // Prevent scroll of sections and slides:
   // fullpage_api.setAllowScrolling(false);
 
   // mapbox initialisation
+  function initialiseMapbox(longitude, latitude) {
+    // mapbok token
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
 
-  // DISABLE MAPBOX WHEN PAGE INSPECT IS NOT LOADING
+    // initialise map
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v12",
+      center: [longitude, latitude],
+      zoom: 12,
+    });
 
-  // mapbok token
-  // mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
-
-  // const map = new mapboxgl.Map({
-  //   container: "map",
-  //   style: "mapbox://styles/mapbox/streets-v12",
-  //   center: [169.13331678032918, -44.6950477150028],
-  //   zoom: 12,
-  // });
+    // set marker at the location point
+    new mapboxgl.Marker()
+    .setLngLat([longitude, latitude])
+    .addTo(map);
+  }
 
   // Swiper Init:
   const swiper = new Swiper('.swiper', {
@@ -269,6 +290,9 @@ $(document).ready(function () {
 
       // append accommodation card to results grid
       accommodationResults.append(accommodationCard);
+
+      // initialise modal on click function
+      openModalOnClick();
     });
 
     // re-initialise swiper
@@ -393,18 +417,19 @@ $(document).ready(function () {
 
   }
 
+  // open modal on click
   function openModalOnClick() {
-    // get dialog modal from html
-    const accommModalContainer = $("#accommodationsModal");
+    // get dialog modal from html $ swiper images
+    const accommModalContainer = $("#accommodationModal")[0];
+    const accomSwiperImages = $(".accommodation-item-image");
 
     // open modal on click - for all accommodation swiper images
-    $(".accommodation-item-image").on("click", function (event) {
-      console.log("img click is working");
+    accomSwiperImages.on("click", function(event) {
       accommModalContainer.showModal();
       document.body.classList.add("opened-modal");
 
       // get accommodation swiper image id & populate on click
-      const accommodationId = $(this).data("id");
+      const accommodationId = event.target.getAttribute("data-id");
       populateModal(accommodationId);
     });
 
@@ -416,7 +441,7 @@ $(document).ready(function () {
   function closeAccommodationModal() {
     // get the modal close button & modal container
     const closeModalButton = $("#closeModal");
-    const accommModalContainer = $("#accommodationsModal");
+    // const accommModalContainer = $("#accommodationModal");
 
     // remove existing event listener (if needed)
     closeModalButton.off("click", closeModalHandler);
@@ -427,7 +452,7 @@ $(document).ready(function () {
 
   // close modal handler function
   function closeModalHandler() {
-    const accommModalContainer = $("#accommodationsModal");
+    const accommModalContainer = $("#accommodationModal");
     accommModalContainer[0].close();
     document.body.classList.remove("opened-modal");
   }
@@ -435,11 +460,11 @@ $(document).ready(function () {
   // populate modal function
   function populateModal(accommodationId) {
     // get modal from html & accommodation objects
-    const accommodationModal = $(".modalContent");
+    const accommModalContent = $(".modalContent");
     const accommodation = accommodations.find(a => a.id == accommodationId);
 
     // add modal content
-    accommodationModal.html(`
+    accommModalContent.html(`
     <div class="swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide"><img src="${accommodation.image[0]}" alt="${accommodation.propertyName} image1" class="accommodation-item-image" data-id="${accommodation.id}"></div>
@@ -464,8 +489,21 @@ $(document).ready(function () {
         <h3 class="black-label">${accommodation.price}/night</h3>
         <h3 class="black-label">${accommodation.minPerson}-${accommodation.maxPerson} guests</h3>
       </div>
+      <div class="accommodation-info">
+        <p class="black-body-text">${accommodation.description}</p>
+        <div class="accomm-ammenities">
+          <h3 class="blue-header">Ammenities: </h3>
+            <i class="fa-solid fa-wine-glass-empty blue-icon"></i>
+            <i class="fa-solid fa-utensils blue-icon"></i>
+            <i class="fa-solid fa-wifi blue-icon"></i>
+        </div>
+        <div id="map"></div>
+      </div>
+      <div class="book-accomm-btn-container">
+        <button class="book-accomm-submit-btn" id="bookAccommButton">Book Accommodation</button>
+      </div>
     </div>
-  `);
+    `);
 
     // re-initialise swiper for modal
     const swiper = new Swiper('.swiper', {
@@ -479,6 +517,12 @@ $(document).ready(function () {
         prevEl: '.swiper-button-prev',
       },
     });
+
+    // initialise map & set long lat
+    const longitude = accommodation.longitude;
+    const latitude = accommodation.latitude;
+
+    initialiseMapbox(longitude, latitude);
   }
 
 

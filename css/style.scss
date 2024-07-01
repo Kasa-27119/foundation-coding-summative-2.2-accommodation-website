@@ -56,6 +56,13 @@ body {
         width: 100%;
         border: none;
     }
+
+    .black-body-text {
+        color: $main-blue-black-color;
+        font-size: $body-font-size;
+        font-family: $body-font-family;
+        font-weight: $body-font-weight;
+    }
 }
 
 // swiper
@@ -64,10 +71,10 @@ body {
     max-height: 280px;
 }
 
-// mapbox
 #map {
-    height: 400px;
     width: 100%;
+    height: 220px;
+    border-radius: $element-border-radius;
 }
 
 // navbar
@@ -134,6 +141,159 @@ body {
     }
 }
 
+// accommodation card modal
+#accommodationModal {
+    z-index: 20;
+    position: fixed;
+    top: 3%;
+    left: 33%;
+    width: 35vw;
+    height: auto;
+    background-color: rgba(255, 252, 255, 0.952);
+    border: 1px solid rgba(255, 252, 255);
+    border-radius: $element-border-radius;
+
+    // accomm modal swiper
+    .swiper {
+        max-width: 100%;
+        max-height: 280px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+
+        .swiper-slide {
+            @include space-around-centre-row-flex($display-flex, $flex-dir-column, center, center);
+        }
+
+        // swiper slide image
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        // swiper pagination container
+        .swiper-pagination {
+            background-color: rgba(231, 236, 237, 0.7);
+            margin: 0 197px;
+            max-width: 55px;
+            padding: 5px 8px;
+            border-radius: 20px;
+
+            @include space-around-centre-row-flex($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
+
+            .swiper-pagination-bullet {
+                background-color: $green-accent-color;
+            }
+        }
+    }
+
+    // accomm modal details
+    .accommodation-details {
+        padding: $element-padding;
+
+        // acccommodation details top & bottom row
+        .accomm-details-top-container,
+        .accomm-details-bottom-container {
+            display: $display-flex;
+            flex-direction: $flex-dir-row;
+        }
+
+        .accomm-details-top-container {
+            display: $display-flex;
+            justify-content: space-between;
+
+            .accomm-details-header-container h3 {
+                font-size: $header-font-size;
+            }
+
+            .accomm-details-header-container h4 {
+                font-size: $subheader-font-size;
+            }
+
+            .accomm-details-ratings {
+                display: $display-flex;
+                justify-content: center;
+                align-items: flex-start;
+                color: $gold-accent-color;
+
+                .accomm-ratings {
+                    font-size: 28px;
+                    margin-right: 5px;
+                }
+
+                .fa-award {
+                    font-size: $header-font-size;
+                }
+            }
+        }
+
+        .accomm-details-bottom-container {
+            margin-top: 12px;
+            justify-content: space-between;
+        }
+
+        // accommodation info - description & map
+        .accommodation-info {
+            margin: 35px 0;
+
+            .black-body-text {
+                margin-bottom: 30px;
+                font-weight: 500;
+            }
+
+            // accomm. ammenities
+            .accomm-ammenities {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-right: 5%;
+                margin-bottom: 35px;
+
+                .blue-header {
+                    font-size: $subheader-font-size;
+                    color: $blue-accent-color;
+                }
+
+                .blue-icon {
+                    font-size: 30px;
+                    color: $blue-accent-color;
+                }
+            }
+        }
+
+        // accommodation booking button
+        .book-accomm-btn-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            .book-accomm-submit-btn {
+                padding: 12px 28px;
+                background-color: $green-accent-color;
+                color: $main-white-color;
+                border: none;
+                font-family: $header-font-family;
+                font-weight: $header-font-weight;
+                font-size: $subheader-font-size;
+                border-radius: $button-border-radius;
+
+            }
+        }
+    }
+
+    // close modal button
+    #closeModal {
+        position: fixed;
+        z-index: 40;
+        margin-top: 5px;
+        margin-left: 32.5vw;
+        font-size: 2em;
+        color: $blue-accent-color;
+        background-color: #91179100;
+    }
+}
 
 // fullpage styling 
 .section {
@@ -305,9 +465,9 @@ body {
                     border-top-left-radius: 8px;
                     border-top-right-radius: 8px;
 
-                   .swiper-slide {
-                    @include space-around-centre-row-flex($display-flex, $flex-dir-column, center, center);
-                   }
+                    .swiper-slide {
+                        @include space-around-centre-row-flex($display-flex, $flex-dir-column, center, center);
+                    }
 
                     // swiper slide image
                     .swiper-slide img {
@@ -339,7 +499,8 @@ body {
                     padding: $element-padding;
 
                     // acccommodation details top & bottom row
-                    .accomm-details-top-container, .accomm-details-bottom-container {
+                    .accomm-details-top-container,
+                    .accomm-details-bottom-container {
                         display: $display-flex;
                         flex-direction: $flex-dir-row;
                     }
@@ -348,11 +509,11 @@ body {
                         display: $display-flex;
                         justify-content: space-between;
 
-                        .accomm-details-header-container h3{
+                        .accomm-details-header-container h3 {
                             font-size: $header-font-size;
                         }
 
-                        .accomm-details-header-container h4{
+                        .accomm-details-header-container h4 {
                             font-size: $subheader-font-size;
                         }
 
@@ -384,33 +545,21 @@ body {
             }
         }
 
-        // accommodation card modal
-        #accommodationModal {
-            z-index: 30;
-            position: fixed;
-            display: none;
-            top: 20px;
-            left: 500px;
+        // // accommodation card modal
+        // #accommodationModal {
+        //     z-index: 20;
+        //     position: fixed;
+        //     display: flex;
+        //     top: 20vh;
+        //     left: 50vw;
 
-            display: flex;
-            flex-direction: column;
-            min-width: 500px;
-            height: auto;
-            background-color: aliceblue;
-        }
-
-        // test modal
-        #test-modal {
-            z-index: 100;
-            position: fixed;
-            display: block;
-            top: 0;
-            left: 0;
-
-            min-height: 400px;
-            min-width: 400px;
-            background-color: #cc3535;
-        }
+        //     // display: flex;
+        //     // flex-direction: row;
+        //     // justify-content: center;
+        //     width: 500px;
+        //     height: auto;
+        //     background-color: aliceblue;
+        // }
     }
 
     // slide 4
@@ -431,7 +580,7 @@ body {
     // button states
 
     // accommodation page scrollbar
-    ::-webkit-scrollbar{
+    ::-webkit-scrollbar {
         display: none;
     }
 }

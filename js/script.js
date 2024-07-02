@@ -245,7 +245,6 @@ $(document).ready(function () {
       // run filter and populate function
       filterAndPopulateAccommodations();
     }
-
   });
 
   // prevent "go to booking details" button default & go to next slide
@@ -256,6 +255,7 @@ $(document).ready(function () {
   });
 
   // initial accommodation population
+  // remove for each and replace w/ for loop
   function populateAccommodationResults(accommodations) {
     // get div from html
     const accommodationResults = $("#accommodation-results");
@@ -288,7 +288,7 @@ $(document).ready(function () {
             </div>
           </div>
           <div class="accomm-details-bottom-container">
-            <h3 class="black-label">${accommodation.price}/night</h3>
+            <h3 class="black-label">$${accommodation.price}/night</h3>
             <h3 class="black-label">${accommodation.minPerson}-${accommodation.maxPerson} guests</h3>
           </div>
         </div>
@@ -437,7 +437,7 @@ $(document).ready(function () {
 
       // get accommodation swiper image id & populate on click
       const accommodationId = event.target.getAttribute("data-id");
-      populateModal(accommodationId);
+      populateModal(accommodationId, chosenAccommHandler);
     });
 
     // added close function
@@ -448,7 +448,6 @@ $(document).ready(function () {
   function closeAccommodationModal() {
     // get the modal close button & modal container
     const closeModalButton = $("#closeModal");
-    // const accommModalContainer = $("#accommodationModal");
 
     // remove existing event listener (if needed)
     closeModalButton.off("click", closeModalHandler);
@@ -464,12 +463,18 @@ $(document).ready(function () {
     document.body.classList.remove("opened-modal");
   }
 
+  // chosen accomm id and price handler function
+  function chosenAccommHandler(id, price) {
+    console.log(id);
+    console.log(price);
+  }
+
   // populate modal function
-  function populateModal(accommodationId) {
+  function populateModal(accommodationId, callback) {
     // get modal from html & accommodation objects
     const accommModalContent = $(".modalContent");
     const accommodation = accommodations.find(a => a.id == accommodationId);
-
+    
     // initialise map & set long lat
     const longitude = accommodation.longitude;
     const latitude = accommodation.latitude;
@@ -497,7 +502,7 @@ $(document).ready(function () {
         </div>
       </div>
       <div class="accomm-details-bottom-container">
-        <h3 class="black-label">${accommodation.price}/night</h3>
+        <h3 class="black-label">$${accommodation.price}/night</h3>
         <h3 class="black-label">${accommodation.minPerson}-${accommodation.maxPerson} guests</h3>
       </div>
       <div class="accommodation-info">
@@ -533,25 +538,48 @@ $(document).ready(function () {
     initialiseMapbox(longitude, latitude);
 
     // bookAccommButton on click
-    $("#bookAccommButton").click(function (event) {
+    $("#bookAccommButton").on("click", function(event) {
       // prevent default
       event.preventDefault();
 
-      // return price of chosen accomm
+      // get chosen id and price and log them out
+      const chosenId = accommodation.id;
+      const chosenPrice = accommodation.price;
+      callback(chosenId, chosenPrice);
 
       // close accommodation modal
       closeModalHandler();
 
       // move to meals options slide
       fullpage_api.moveTo(1, 3);
+
     });
 
+    // function populateBookingDetails() {
+
+    // }
+
   }
 
-  // get chosen accomm price
-  function getChosenAccommPrice() {
-    const accommodation = accommodations.find(a => a.id == accommodationId);
-  }
+  // calculate total booking fee
+  // function calculateBookingFee() {
+  //   // ((selectedAccom x numberOfDays) + selectedMealsOption) = total fee
+
+  //   // get days of stay
+  //   const diffDays = calculateDaysOfStay();
+
+  //   // get chosen accommodation price
+  //   const chosenPrice = accommodation.price;
+
+  //   // get selected meal option
+  // }
+
+  // populate booking details page function
+  // function populateBookingDetails() {
+    
+  // }
+
+
 
 
 

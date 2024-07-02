@@ -192,8 +192,8 @@ $(document).ready(function () {
 
     // set marker at the location point
     new mapboxgl.Marker()
-    .setLngLat([longitude, latitude])
-    .addTo(map);
+      .setLngLat([longitude, latitude])
+      .addTo(map);
   }
 
   // Swiper Init:
@@ -246,6 +246,13 @@ $(document).ready(function () {
       filterAndPopulateAccommodations();
     }
 
+  });
+
+  // prevent "go to booking details" button default & go to next slide
+  $("#accommMealsSubmitButton").click(function (event) {
+    event.preventDefault();
+
+   fullpage_api.moveTo(1, 4);
   });
 
   // initial accommodation population
@@ -424,7 +431,7 @@ $(document).ready(function () {
     const accomSwiperImages = $(".accommodation-item-image");
 
     // open modal on click - for all accommodation swiper images
-    accomSwiperImages.on("click", function(event) {
+    accomSwiperImages.on("click", function (event) {
       accommModalContainer.showModal();
       document.body.classList.add("opened-modal");
 
@@ -462,6 +469,10 @@ $(document).ready(function () {
     // get modal from html & accommodation objects
     const accommModalContent = $(".modalContent");
     const accommodation = accommodations.find(a => a.id == accommodationId);
+
+    // initialise map & set long lat
+    const longitude = accommodation.longitude;
+    const latitude = accommodation.latitude;
 
     // add modal content
     accommModalContent.html(`
@@ -518,12 +529,33 @@ $(document).ready(function () {
       },
     });
 
-    // initialise map & set long lat
-    const longitude = accommodation.longitude;
-    const latitude = accommodation.latitude;
-
+    // initialise mapbox
     initialiseMapbox(longitude, latitude);
+
+    // bookAccommButton on click
+    $("#bookAccommButton").click(function (event) {
+      // prevent default
+      event.preventDefault();
+
+      // return price of chosen accomm
+
+      // close accommodation modal
+      closeModalHandler();
+
+      // move to meals options slide
+      fullpage_api.moveTo(1, 3);
+    });
+
   }
+
+  // get chosen accomm price
+  function getChosenAccommPrice() {
+    const accommodation = accommodations.find(a => a.id == accommodationId);
+  }
+
+
+
+
 
 
 });

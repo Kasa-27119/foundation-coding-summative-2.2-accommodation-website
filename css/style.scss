@@ -145,10 +145,10 @@ body {
 #accommodationModal {
     z-index: 20;
     position: fixed;
-    top: 3%;
+    top: 10%;
     left: 33%;
     width: 35vw;
-    height: auto;
+    height: 87vh;
     background-color: rgba(255, 252, 255, 0.952);
     border: 1px solid rgba(255, 252, 255);
     border-radius: $element-border-radius;
@@ -176,7 +176,7 @@ body {
         // swiper pagination container
         .swiper-pagination {
             background-color: rgba(231, 236, 237, 0.7);
-            margin: 0 197px;
+            margin: 0 44.5%;
             max-width: 55px;
             padding: 5px 8px;
             border-radius: 20px;
@@ -293,6 +293,7 @@ body {
         color: $blue-accent-color;
         background-color: #91179100;
     }
+
 }
 
 // fullpage styling 
@@ -324,6 +325,7 @@ body {
 
         // welcome panel
         .welcome-panel {
+            z-index: 20;
             max-width: 35%;
             padding: $element-padding;
 
@@ -360,6 +362,17 @@ body {
         background-image: url("../imgs/wanaka-bg-2.webp");
         background-position: center;
         background-size: cover;
+
+        // .bg-blur {
+        //     position: fixed;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background-color: rgba(246, 251, 254, 0.322);
+        //     backdrop-filter: blur(8px);
+        //     z-index: 0;
+        // }
 
         // accommodation form container
         .accommodation-form {
@@ -410,6 +423,8 @@ body {
 
             #accommodation-header {
                 font-size: 5.375em;
+                font-family: $header-font-family;
+                font-weight: $header-font-weight;
                 text-align: center;
                 margin-bottom: 20px;
             }
@@ -545,31 +560,133 @@ body {
             }
         }
 
-        // // accommodation card modal
-        // #accommodationModal {
-        //     z-index: 20;
-        //     position: fixed;
-        //     display: flex;
-        //     top: 20vh;
-        //     left: 50vw;
-
-        //     // display: flex;
-        //     // flex-direction: row;
-        //     // justify-content: center;
-        //     width: 500px;
-        //     height: auto;
-        //     background-color: aliceblue;
-        // }
     }
 
-    // slide 4
+    // slide 4 - meal options page
     #slide-4 {
-        background-color: rgb(157, 53, 53);
+        background-image: url("../imgs/wanaka-bg-2.webp");
+        background-position: center;
+        background-size: cover;
+
+        // meals top container
+        .meals-top-container {
+            margin: 40px 0;
+            padding: $element-padding;
+
+            @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
+
+            @include space-around-centre-column-flex($display-flex, $flex-dir-column, $align-items-center, $justify-content-space-around);
+
+            #meals-header {
+                font-size: 5.375em;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .meals-page-description {
+                font-size: $subheader-font-size;
+                text-align: center;
+                width: 70%;
+            }
+
+        }
+
+        // meals grid container
+        .meals-options-container {
+            height: auto;
+            min-width: 100%;
+            padding: 30px 0;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px 30px;
+
+            // meals options card
+            .meals-options-card {
+                display: flex;
+                flex-direction: column;
+                min-height: auto;
+
+                @include glassmorphism-white($glass-white-bg, $glass-white-box-shadow, $glass-white-backdrop-filter, $element-border-radius);
+
+                .meals-options-content-container {
+                    min-width: 100%;
+                    object-position: center;
+                    object-fit: cover;
+
+                    .meals-options-img {
+                        min-width: 100%;
+                        height: 280px;
+                        border-top-left-radius: $element-border-radius;
+                        border-top-right-radius: $element-border-radius;
+                    }
+
+                    .meals-options-details-container {
+                        padding: $element-padding;
+
+                        @include space-around-centre-column-flex($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
+
+                        // meals options headers & radio select
+                        .meals-options-top-container {
+                            min-width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+
+                            .meals-options-headers {
+                                font-family: $header-font-family;
+                                font-weight: $header-font-weight;
+                            }
+
+                            .meals-options-headers h3 {
+                                font-size: $header-font-size;
+                                font-weight: $header-font-weight;
+                            }
+
+                            .meals-options-headers h4 {
+                                font-size: $subheader-font-size;
+                                font-weight: $header-font-weight;
+                                color: $blue-accent-color;
+
+                            }
+
+                            // meals options radio select
+                            .meals-options-select {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-around;
+
+                                .radio-btn {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                            }
+                        }
+
+                        // meals options bottom container
+                        .meals-options-bottom-text {
+                            margin-top: 16px;
+                        } 
+
+
+                    }
+                }
+            }
+        }
+
+        // meals bottom container 
+        .meals-bottom-container {
+            margin: 35px 0 50px 0;
+
+            @include space-around-centre-row-flex ($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
+        }
+
     }
 
-    // slide 5
+    // slide 5 - booking details
     #slide-5 {
-        background-color: rgb(227, 162, 78);
+        background-image: url("../imgs/wanaka-bg-1.webp");
+        background-position: center;
+        background-size: cover;
     }
 
     // slide 6

@@ -646,6 +646,8 @@ $(document).ready(function() {
     // empty output booking details container
     outputBookingDetails.empty();
     outputBookingDetails.append(outputBookingHtml);
+
+    // initialise mapbox
     initialiseMapbox(longitude, latitude);
 
     // re-initialise swiper

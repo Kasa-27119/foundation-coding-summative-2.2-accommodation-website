@@ -364,17 +364,6 @@ body {
         background-position: center;
         background-size: cover;
 
-        // .bg-blur {
-        //     position: fixed;
-        //     top: 0;
-        //     left: 0;
-        //     width: 100%;
-        //     height: 100%;
-        //     background-color: rgba(246, 251, 254, 0.322);
-        //     backdrop-filter: blur(8px);
-        //     z-index: 0;
-        // }
-
         // accommodation form container
         .accommodation-form {
             max-width: 38%;
@@ -420,7 +409,6 @@ body {
             max-width: 100%;
             height: auto;
             margin: 40px 0;
-            // background-color: rgb(237, 235, 232);
 
             #accommodation-header {
                 font-size: 5.375em;
@@ -705,7 +693,6 @@ body {
 
             @include space-around-centre-row-flex ($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
         }
-
     }
 
     // slide 5 - booking details

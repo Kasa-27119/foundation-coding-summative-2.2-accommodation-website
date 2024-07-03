@@ -234,7 +234,6 @@ $(document).ready(function () {
 
     // move to next slide
     fullpage_api.moveTo(1, 1);
-
   });
 
   // prevent "find accommodations" button default & validate (slide 2)
@@ -264,7 +263,6 @@ $(document).ready(function () {
   });
 
   // initial accommodation population
-  // remove for each and replace w/ for loop
   function populateAccommodationResults(accommodations) {
     // get div from html
     const accommodationResults = $("#accommodation-results");
@@ -381,12 +379,10 @@ $(document).ready(function () {
 
     // return passed objects as true
     return validValue;
-
   }
 
   // filter accommodations
   function filterAndPopulateAccommodations() {
-
     // get form inputs values
     const accommodationType = $("#accommodationType").val();
     const numberOfGuests = parseInt($("#numberOfGuests").val());
@@ -407,13 +403,11 @@ $(document).ready(function () {
       );
     });
 
-    // console.log(filteredAccommodations);
     populateAccommodationResults(filteredAccommodations);
   }
 
   // calculate days of stay
   function calculateDaysOfStay() {
-
     // get date values from datepicker
     const startDate = $("#startDate").datepicker("getDate");
     const endDate = $("#endDate").datepicker("getDate");
@@ -558,9 +552,7 @@ $(document).ready(function () {
 
   // calculate total booking fee
   function calculateBookingFee() {
-
     // get opened accommodation id
-    // const accommodation = accommodations.find(accommodation => accommodation.id == selectedAccommodationId);
     const accommodation = accommodations.find(a => a.id == selectedAccommodationId);
 
     // get days of stay
@@ -575,7 +567,6 @@ $(document).ready(function () {
     // const mealOptionValue = mealsOption[selectedMealOption];
 
     // calculate the total booking fee
-    // ((chosenAccom x numberOfDays) + chosenMealsOption) = total fee
     const totalFee = (accommodationPrice * numberOfDays) + mealsPrice;
 
     // return the total fee

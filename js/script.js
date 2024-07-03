@@ -251,7 +251,13 @@ $(document).ready(function () {
   $("#accommMealsSubmitButton").click(function (event) {
     event.preventDefault();
 
-   fullpage_api.moveTo(1, 4);
+    // check if an accommodation has been selected
+    if (selectedAccommodationId !== null) {
+      populateBookingDetails(selectedAccommodationId);
+      fullpage_api.moveTo(1, 4);
+    } else {
+      alert("Please select an accommodation first.");
+    }
   });
 
   // initial accommodation population
@@ -437,6 +443,8 @@ $(document).ready(function () {
 
       // get accommodation swiper image id & populate on click
       const accommodationId = event.target.getAttribute("data-id");
+      // keep opened accommodation id
+      selectedAccommodationId = accommodationId;
       populateModal(accommodationId, chosenAccommHandler);
     });
 
@@ -555,15 +563,11 @@ $(document).ready(function () {
 
     });
 
-    // function populateBookingDetails() {
-
-    // }
-
   }
 
   // calculate total booking fee
   // function calculateBookingFee() {
-  //   // ((selectedAccom x numberOfDays) + selectedMealsOption) = total fee
+  //   // ((chosenAccom x numberOfDays) + chosenMealsOption) = total fee
 
   //   // get days of stay
   //   const diffDays = calculateDaysOfStay();
@@ -571,13 +575,99 @@ $(document).ready(function () {
   //   // get chosen accommodation price
   //   const chosenPrice = accommodation.price;
 
-  //   // get selected meal option
+  //   // get chosen meal option
   // }
 
   // populate booking details page function
-  // function populateBookingDetails() {
-    
-  // }
+  function populateBookingDetails(accommodationId) {
+    // get opened accommodation id
+    const accommodation = accommodations.find(a => a.id == accommodationId);
+
+    // get form input values
+    const numberOfGuests = $("#numberOfGuests").val();
+    const startDate = $("#startDate").datepicker("getDate");
+    const endDate = $("#endDate").datepicker("getDate");
+    const numberOfDays = calculateDaysOfStay();
+
+    // format start and end dates to dd/mm/yy
+    const formattedStartDate = $.datepicker.formatDate("dd/mm/yy", startDate);
+    const formattedEndDate = $.datepicker.formatDate("dd/mm/yy", endDate);
+
+    // get output main container
+    const outputBookingDetails = $("#outputBookingDetails");
+
+    // output container population
+    const outputBookingHtml = `
+      <div class="booking-details-left-container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="${accommodation.image[0]}" alt="${accommodation.propertyName} image1" class="accommodation-item-image" data-id="${accommodation.id}"></div>
+              <div class="swiper-slide"><img src="${accommodation.image[1]}" alt="${accommodation.propertyName} image2" class="accommodation-item-image" data-id="${accommodation.id}"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div id="map"></div>
+        <button class="form-submit-btn">Confirm Booking</button>
+      </div>
+                    
+    <div class="booking-details-right-container">
+        <div class="booking-info-main-container">
+            <h3 class="green-header">Booking Details</h3>
+
+            <div class="booking-info-text-container">
+                <h4>Accommodation Name</h4>
+                <div class="booking-info-body-container">
+                    <p>${accommodation.propertyName}</p>
+                </div>
+
+                <h4>Location Address</h4>
+                <div class="booking-info-body-container">
+                    <p>${accommodation.address}</p>
+                </div>
+
+                <h4>Total Booking Fee</h4>
+                <div class="booking-info-body-container">
+                    <p></p>
+                </div>
+
+                <h4>Number of Guests</h4>
+                <div class="booking-info-body-container">
+                    <p>${numberOfGuests} guests</p>
+                </div>
+
+                <h4>Check In & Out Date</h4>
+                <div class="booking-info-body-container">
+                    <p>Check In: ${formattedStartDate}</p>
+                    <p>Check Out: ${formattedEndDate}</p>
+                    <p>Number of Nights: ${numberOfDays}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    const longitude = accommodation.longitude;
+    const latitude = accommodation.latitude;
+
+    // empty output booking details container
+    outputBookingDetails.empty();
+    outputBookingDetails.append(outputBookingHtml);
+    initialiseMapbox(longitude, latitude);
+
+    // re-initialise swiper
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: 'true',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
 
 
 

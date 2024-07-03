@@ -291,7 +291,7 @@ body {
         margin-top: 5px;
         margin-left: 32.5vw;
         font-size: 2em;
-        color: $blue-accent-color;
+        color: $main-blue-black-color;
         background-color: #91179100;
     }
 
@@ -718,7 +718,7 @@ body {
         .booking-details-main-container {
             min-width: 100%;
             min-height: 100vh;
-            background-color: antiquewhite;
+            // background-color: antiquewhite;
 
             @include space-around-centre-row-flex ($display-flex, $flex-dir-row, $align-items-center, $justify-content-space-around);
 

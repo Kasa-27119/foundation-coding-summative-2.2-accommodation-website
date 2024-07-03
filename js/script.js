@@ -167,7 +167,7 @@ const accommodations = [{
 // global selectedAccommodationId variable
 let selectedAccommodationId = null;
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Fullpage Init:
   new fullpage('#fullpage', {
     licenseKey: 'gplv3-license',
@@ -229,7 +229,7 @@ $(document).ready(function () {
   });
 
   // prevent "find accommodations now" button default (slide 1)
-  $("#findAccommodationsButton").click(function (event) {
+  $("#findAccommodationsButton").click(function(event) {
     event.preventDefault();
 
     // move to next slide
@@ -237,7 +237,7 @@ $(document).ready(function () {
   });
 
   // prevent "find accommodations" button default & validate (slide 2)
-  $("#findAccommodationsSubmitButton").click(function (event) {
+  $("#findAccommodationsSubmitButton").click(function(event) {
     event.preventDefault();
 
     // validates form inputs & move to slide 3
@@ -250,7 +250,7 @@ $(document).ready(function () {
   });
 
   // prevent "go to booking details" button default & go to next slide
-  $("#accommMealsSubmitButton").click(function (event) {
+  $("#accommMealsSubmitButton").click(function(event) {
     event.preventDefault();
 
     // check if an accommodation has been selected
@@ -424,7 +424,6 @@ $(document).ready(function () {
     } else {
       return 0;
     }
-
   }
 
   // open modal on click
@@ -547,7 +546,6 @@ $(document).ready(function () {
       // move to meals options slide
       fullpage_api.moveTo(1, 3);
     });
-
   }
 
   // calculate total booking fee

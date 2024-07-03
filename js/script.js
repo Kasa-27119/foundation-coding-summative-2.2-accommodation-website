@@ -16,10 +16,10 @@ const accommodations = [{
     minStay: 1,
     maxStay: 10,
     price: 30,
-    longitude: 169.14796156828785,
-    latitude: -44.68833610545848,
+    longitude: 169.13618468201614,
+    latitude: -44.69307027796208,
     image: ["https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1553444859-788c4b385b13?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
-    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
+    description: `Beside the calming  and grand lake Wanaka, and a 3-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
   {
     // hostel #2
@@ -36,8 +36,8 @@ const accommodations = [{
     minStay: 1,
     maxStay: 10,
     price: 30,
-    longitude: 169.14400050370767,
-    latitude: -44.69240595726597,
+    longitude: 169.14760760393548,
+    latitude: -44.691159389348286,
     image: ["https://images.unsplash.com/photo-1535961671600-c244ea895cec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1535961671600-c244ea895cec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
     description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
   },
@@ -80,7 +80,7 @@ const accommodations = [{
     longitude: 169.11241468540766,
     latitude: -44.694683102002955,
     image: ["https://images.unsplash.com/photo-1612320582827-a95ab2596dbc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1612320582827-a95ab2596dbc?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
-    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
+    description: `A cozy and luxurious lodge nestled in the alpine hills overlooking the great Wanaka lake, Belmont Lodge provides its visitors a breathtaking and rejuvenating getaway from the city hustle and bustle. Located just a 3 mins. walk away from Milford Sound Tours, you can assure to never miss a great adventure into the South Islands most picturesque landscapes.`,
   },
   {
     // motel #1
@@ -97,10 +97,10 @@ const accommodations = [{
     minStay: 3,
     maxStay: 10,
     price: 90,
-    longitude: 169.12749734263406,
-    latitude: -44.68476604629336,
+    longitude: 169.13625139036435,
+    latitude: -44.69560231920775,
     image: ["https://images.unsplash.com/photo-1642552647918-32f6d5401980?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "https://images.unsplash.com/photo-1642552647918-32f6d5401980?q=80&w=2066&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
-    description: `Beside the calming  and grand lake Wanaka, and a 10-min walk from the lakeside central business district, Kingston Hostel offers a comfortable and humble experience to its guests. The ground level of the hostel hosts an award-winning cafe, The Caffeine Fix, and a gift-shop, where its visitors can browse and buy hand-made and local trinkets and novelty gifts hand-crafted by our community.`,
+    description: `Lismore Motel is a comfortable and spacious motel located near the Wanaka waterfront, for our guests convenience to enjoy the culinary and shopping center of our humble and picturesque town. All of our guests can take a sunny morning stroll along the lake promenade and even visit the Information Center, where they can get more tourist info on the Lake Wanaka and greater region.`,
   },
   {
     // motel #2
@@ -164,18 +164,21 @@ const accommodations = [{
   }
 ];
 
+// global selectedAccommodationId variable
+let selectedAccommodationId = null;
+
 $(document).ready(function () {
   // Fullpage Init:
   new fullpage('#fullpage', {
     licenseKey: 'gplv3-license',
     autoScrolling: true,
     scrollHorizontally: true,
-    controlArrows: true,
+    controlArrows: false,
     fixedElements: ".navbar, #accommodationModal",
   });
 
   // Prevent scroll of sections and slides:
-  // fullpage_api.setAllowScrolling(false);
+  fullpage_api.setAllowScrolling(false);
 
   // mapbox initialisation
   function initialiseMapbox(longitude, latitude) {
@@ -187,7 +190,7 @@ $(document).ready(function () {
       container: "map",
       style: "mapbox://styles/mapbox/streets-v12",
       center: [longitude, latitude],
-      zoom: 12,
+      zoom: 13,
     });
 
     // set marker at the location point
@@ -256,7 +259,7 @@ $(document).ready(function () {
       populateBookingDetails(selectedAccommodationId);
       fullpage_api.moveTo(1, 4);
     } else {
-      alert("Please select an accommodation first.");
+      alert("Please select an accommodation first");
     }
   });
 
@@ -270,7 +273,8 @@ $(document).ready(function () {
     accommodationResults.html("");
 
     // populate results div with cards for each array object
-    accommodations.forEach(accommodation => {
+    for (i = 0; i < $(accommodations).length; i++) {
+      const accommodation = accommodations[i];
       const accommodationCard = `
       <div class="accommodation-card">
         <div class="swiper">
@@ -306,7 +310,7 @@ $(document).ready(function () {
 
       // initialise modal on click function
       openModalOnClick();
-    });
+    }
 
     // re-initialise swiper
     const swiper = new Swiper('.swiper', {
@@ -389,7 +393,6 @@ $(document).ready(function () {
     const minPrice = parseFloat($("#minPrice").val().replace("$", ""));
     const maxPrice = parseFloat($("#maxPrice").val().replace("$", ""));
     const diffDays = calculateDaysOfStay();
-    console.log(diffDays);
 
     // filter over accommodation objects and return as filteredAccommodations
     const filteredAccommodations = accommodations.filter(accommodation => {
@@ -404,7 +407,7 @@ $(document).ready(function () {
       );
     });
 
-    console.log(filteredAccommodations);
+    // console.log(filteredAccommodations);
     populateAccommodationResults(filteredAccommodations);
   }
 
@@ -445,7 +448,7 @@ $(document).ready(function () {
       const accommodationId = event.target.getAttribute("data-id");
       // keep opened accommodation id
       selectedAccommodationId = accommodationId;
-      populateModal(accommodationId, chosenAccommHandler);
+      populateModal(accommodationId);
     });
 
     // added close function
@@ -471,14 +474,8 @@ $(document).ready(function () {
     document.body.classList.remove("opened-modal");
   }
 
-  // chosen accomm id and price handler function
-  function chosenAccommHandler(id, price) {
-    console.log(id);
-    console.log(price);
-  }
-
   // populate modal function
-  function populateModal(accommodationId, callback) {
+  function populateModal(accommodationId) {
     // get modal from html & accommodation objects
     const accommModalContent = $(".modalContent");
     const accommodation = accommodations.find(a => a.id == accommodationId);
@@ -550,35 +547,42 @@ $(document).ready(function () {
       // prevent default
       event.preventDefault();
 
-      // get chosen id and price and log them out
-      const chosenId = accommodation.id;
-      const chosenPrice = accommodation.price;
-      callback(chosenId, chosenPrice);
-
       // close accommodation modal
       closeModalHandler();
 
       // move to meals options slide
       fullpage_api.moveTo(1, 3);
-
     });
 
   }
 
   // calculate total booking fee
-  // function calculateBookingFee() {
-  //   // ((chosenAccom x numberOfDays) + chosenMealsOption) = total fee
+  function calculateBookingFee() {
 
-  //   // get days of stay
-  //   const diffDays = calculateDaysOfStay();
+    // get opened accommodation id
+    // const accommodation = accommodations.find(accommodation => accommodation.id == selectedAccommodationId);
+    const accommodation = accommodations.find(a => a.id == selectedAccommodationId);
 
-  //   // get chosen accommodation price
-  //   const chosenPrice = accommodation.price;
+    // get days of stay
+    const numberOfDays = calculateDaysOfStay();
 
-  //   // get chosen meal option
-  // }
+    // get chosen accommodation price
+    const accommodationPrice = accommodation.price;
 
-  // populate booking details page function
+    // get selected meal option
+    const mealsOption = $('input[name="mealsOption"]:checked').val();
+    const mealsPrice = parseFloat(mealsOption);
+    // const mealOptionValue = mealsOption[selectedMealOption];
+
+    // calculate the total booking fee
+    // ((chosenAccom x numberOfDays) + chosenMealsOption) = total fee
+    const totalFee = (accommodationPrice * numberOfDays) + mealsPrice;
+
+    // return the total fee
+    return totalFee;
+  }
+
+  // populate booking details page function 
   function populateBookingDetails(accommodationId) {
     // get opened accommodation id
     const accommodation = accommodations.find(a => a.id == accommodationId);
@@ -588,6 +592,9 @@ $(document).ready(function () {
     const startDate = $("#startDate").datepicker("getDate");
     const endDate = $("#endDate").datepicker("getDate");
     const numberOfDays = calculateDaysOfStay();
+
+    // get total booking fee
+    const totalFee = calculateBookingFee();
 
     // format start and end dates to dd/mm/yy
     const formattedStartDate = $.datepicker.formatDate("dd/mm/yy", startDate);
@@ -617,31 +624,31 @@ $(document).ready(function () {
             <h3 class="green-header">Booking Details</h3>
 
             <div class="booking-info-text-container">
-                <h4>Accommodation Name</h4>
+                <h4 class="blue-booking-header">Accommodation Name</h4>
                 <div class="booking-info-body-container">
-                    <p>${accommodation.propertyName}</p>
+                    <p class="black-body-text-large">${accommodation.propertyName}</p>
                 </div>
 
-                <h4>Location Address</h4>
+                <h4 class="blue-booking-header">Location Address</h4>
                 <div class="booking-info-body-container">
-                    <p>${accommodation.address}</p>
+                    <p class="black-body-text-large">${accommodation.address}</p>
                 </div>
 
-                <h4>Total Booking Fee</h4>
+                <h4 class="blue-booking-header">Total Booking Fee</h4>
                 <div class="booking-info-body-container">
-                    <p></p>
+                    <p class="black-body-text-large">$${totalFee} (Total Booking & Meals Fee)</p>
                 </div>
 
-                <h4>Number of Guests</h4>
+                <h4 class="blue-booking-header">Number of Guests</h4>
                 <div class="booking-info-body-container">
-                    <p>${numberOfGuests} guests</p>
+                    <p class="black-body-text-large">${numberOfGuests} guests</p>
                 </div>
 
-                <h4>Check In & Out Date</h4>
+                <h4 class="blue-booking-header">Check In & Out Date</h4>
                 <div class="booking-info-body-container">
-                    <p>Check In: ${formattedStartDate}</p>
-                    <p>Check Out: ${formattedEndDate}</p>
-                    <p>Number of Nights: ${numberOfDays}</p>
+                    <p class="black-body-text-large">Check In: ${formattedStartDate}</p>
+                    <p class="black-body-text-large">Check Out: ${formattedEndDate}</p>
+                    <p class="black-body-text-large">Number of Nights: ${numberOfDays}</p>
                 </div>
             </div>
         </div>
@@ -668,12 +675,4 @@ $(document).ready(function () {
       },
     });
   }
-
-
-
-
-
-
-
-
 });

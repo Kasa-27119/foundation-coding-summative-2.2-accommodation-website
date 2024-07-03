@@ -177,9 +177,6 @@ $(document).ready(function() {
     fixedElements: ".navbar, #accommodationModal",
   });
 
-  // Prevent scroll of sections and slides:
-  fullpage_api.setAllowScrolling(false);
-
   // mapbox initialisation
   function initialiseMapbox(longitude, latitude) {
     // mapbok token
